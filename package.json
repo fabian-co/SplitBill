@@ -1,0 +1,16 @@
+{
+  "name": "splitbill",
+  "version": "1.0.0",
+  "description": "app para dividir cuentas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "counts",
+    "split",
+    "financial"
+  ],
+  "author": "Fabian Grajales <fabian-co@hotmail.com>",
+  "license": "MIT"
+}
