@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+    background-color: #E8E8E8;
+}
+
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 32;
+    
+}
+
+.header {
+    display: flex;
+    flex-direction: column;  
+    background-color: #76C6F2;
+    height: 96px;
+    width: 100%;    
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 15px 15px;
+}
+
+.titleApp {
+    color: #333333;
+}
