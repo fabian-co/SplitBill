@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SplitBill</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div class="header">
-            <h1 class="titleApp">
-                SplitBill
-            </h1>
-        </div>  
-    </header>          
-</body>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+      <h1 class="titleApp">SplitBill</h1>
+    </header>
+
+    <!-- cuentas -->
+    <div class="count">
+      <div class="countBox">
+        <div class="countTitle">
+          <h2>Cuenta: 1</h2>
+          <span class="material-symbols-outlined"> cancel </span>
+        </div>
+        <div class="countValues">
+          <input type="text" placeholder="Nombre" />
+          <input type="number" placeholder="$ Valor" />
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

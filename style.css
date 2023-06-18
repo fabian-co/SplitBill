@@ -1,6 +1,21 @@
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 200,
+    'opsz' 48
+}
+
+:root {
+    --lightGray: #E8E8E8;
+    --white: #FFFFFF;
+    --blue: #76C6F2;
+    --darkGray: #333333;
+}
+
 body{
     margin: 0;
-    background-color: #E8E8E8;
+    background-color: var(--lightGray);
 }
 
 h1 {
@@ -12,7 +27,7 @@ h1 {
 .header {
     display: flex;
     flex-direction: column;  
-    background-color: #76C6F2;
+    background-color: var(--blue);
     height: 96px;
     width: 100%;    
     align-items: center;
@@ -21,5 +36,27 @@ h1 {
 }
 
 .titleApp {
-    color: #333333;
+    color: var(--darkGray);
+}
+
+.count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;       
+}
+
+.countBox{
+    width: 342px;
+    height: 175px;
+    margin-top: 24px;
+    background-color: var(--white); 
+    border-radius: 15px;
+}
+
+.countTitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--blue);
+    border-radius: 15px 15px 0 0;
 }
