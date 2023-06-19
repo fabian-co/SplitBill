@@ -7,10 +7,11 @@
 }
 
 :root {
-    --lightGray: #E8E8E8;
     --white: #FFFFFF;
     --blue: #76C6F2;
     --darkGray: #333333;
+    --lightGray: #E8E8E8;
+    --mediumGray: #868686;
 }
 
 body{
@@ -47,16 +48,44 @@ h1 {
 
 .countBox{
     width: 342px;
-    height: 175px;
+    height: 176px;
     margin-top: 24px;
     background-color: var(--white); 
+    color: var(--darkGray);
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25)
 }
 
-.countTitle{
+.countTitle{    
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center;    
     background-color: var(--blue);
     border-radius: 15px 15px 0 0;
+    padding: 0 16px 0 16px;
+}
+
+.countTitle h2 {
+    font-family: 'Inter', sans-serif;    
+    margin: 15px;    
+}
+
+.countValues {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 12px 18px;    
+}
+
+.countValues input {
+    height: 100%;
+    margin: 8px 0;
+    font-family: 'Inter', sans-serif; 
+    font-size: 14px;
+    border-radius: 4px;
+    border-color: var(--lightGray);
+    border-style:solid;
 }
