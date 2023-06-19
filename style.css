@@ -89,3 +89,9 @@ h1 {
     border-color: var(--lightGray);
     border-style:solid;
 }
+
+#addSymbol {
+    margin-top: 24px;
+    font-size: 52px;
+    color: var(--darkGray);
+}
