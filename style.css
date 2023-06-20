@@ -39,6 +39,11 @@ h1 {
 .titleApp {
     color: var(--darkGray);
 }
+.countBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .count {
     display: flex;
