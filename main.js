@@ -39,10 +39,13 @@ function boxModel(index) {
     const inputName = document.createElement("input")
     inputName.setAttribute("type", "text")
     inputName.setAttribute("placeholder", "Nombre")
+    inputName.addEventListener('change', actualizarDatosCountBox);
 
     const inputValue = document.createElement("input")
     inputValue.setAttribute("type", "number")
     inputValue.setAttribute("placeholder", "$ Valor")
+    inputValue.addEventListener('change', actualizarDatosCountBox);
+    
 
     countValues.append(inputName, inputValue)
     countTitle.append(h2Tittle, spanClose)
@@ -70,3 +73,27 @@ function addBox(){
     count.appendChild(newCountBox)
     initialBox++
 }
+
+//guardar datos 
+
+let dataCountBox = [];
+
+function actualizarDatosCountBox() {
+    dataCountBox = [];
+    const countBoxes = document.querySelectorAll('.countBox');
+  
+    countBoxes.forEach(function(countBox) {
+      const inputNombre = countBox.querySelector('input[type="text"]');
+      const inputValor = countBox.querySelector('input[type="number"]');
+  
+      const datos = {
+        nombre: inputNombre.value,
+        valor: inputValor.value
+      };
+  
+      dataCountBox.push(datos);
+    });
+  
+    console.log(dataCountBox);
+}
+  
