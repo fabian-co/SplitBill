@@ -1,6 +1,8 @@
 const count = document.querySelector(".count")
 const countElement = document.querySelectorAll(".count")
 const addSymbol = document.querySelector("#addSymbol")
+const buttonCalcular = document.querySelector(".buttonCalcular")
+
 
 // model html
 /*
@@ -16,10 +18,13 @@ const addSymbol = document.querySelector("#addSymbol")
 </div>
 */
 
+// model js
 function boxModel(index) {
+    let idBox = index
+
     const countBox = document.createElement("div")
     countBox.classList.add("countBox")
-
+    countBox.setAttribute("id", "idBox-"+idBox)
 
     const countTitle = document.createElement("div")
     countTitle.classList.add("countTitle")
@@ -39,13 +44,11 @@ function boxModel(index) {
     const inputName = document.createElement("input")
     inputName.setAttribute("type", "text")
     inputName.setAttribute("placeholder", "Nombre")
-    inputName.addEventListener('change', actualizarDatosCountBox);
-
+    
     const inputValue = document.createElement("input")
     inputValue.setAttribute("type", "number")
     inputValue.setAttribute("placeholder", "$ Valor")
-    inputValue.addEventListener('change', actualizarDatosCountBox);
-    
+        
 
     countValues.append(inputName, inputValue)
     countTitle.append(h2Tittle, spanClose)
@@ -59,6 +62,7 @@ function boxModel(index) {
     return countBox
 }
 
+// html inicial 2 countBox
 let initialBox = 2;
 
 for (let i = 0; i < initialBox; i++){
@@ -66,6 +70,7 @@ for (let i = 0; i < initialBox; i++){
     count.appendChild(newCountBox)
 }   
 
+// boton agregar countBox
 addSymbol.addEventListener("click", addBox)
 
 function addBox(){
@@ -76,24 +81,24 @@ function addBox(){
 
 //guardar datos 
 
-let dataCountBox = [];
+function captureInfo(){  
+    const idCountBox = document.querySelectorAll("[id^=idBox]")
+    const infoInputs = []
 
-function actualizarDatosCountBox() {
-    dataCountBox = [];
-    const countBoxes = document.querySelectorAll('.countBox');
-  
-    countBoxes.forEach(function(countBox) {
-      const inputNombre = countBox.querySelector('input[type="text"]');
-      const inputValor = countBox.querySelector('input[type="number"]');
-  
-      const datos = {
-        nombre: inputNombre.value,
-        valor: inputValor.value
-      };
-  
-      dataCountBox.push(datos);
-    });
-  
-    console.log(dataCountBox);
+    idCountBox.forEach((countBox) => {
+        const h2Tittle = countBox.querySelector("h2");
+        const inputName = countBox.querySelector('input[type="text"]');
+        const inputValue = countBox.querySelector('input[type="number"]');
+    
+        const cuenta = h2Tittle.innerText.split(":")[1].trim();
+        const nombre = inputName.value;
+        const valor = inputValue.value;
+
+        infoInputs.push({ cuenta, nombre, valor });
+    })
+
+    console.log(infoInputs)
 }
-  
+
+buttonCalcular.addEventListener("click", captureInfo)
+
