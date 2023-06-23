@@ -82,8 +82,9 @@ function addBox(){
 //guardar datos 
 
 function captureInfo(){  
-    const idCountBox = document.querySelectorAll("[id^=idBox]")
     const infoInputs = []
+    const idCountBox = document.querySelectorAll("[id^=idBox]")
+    
 
     idCountBox.forEach((countBox) => {
         const h2Tittle = countBox.querySelector("h2");
@@ -98,7 +99,48 @@ function captureInfo(){
     })
 
     console.log(infoInputs)
+    return infoInputs
 }
 
-buttonCalcular.addEventListener("click", captureInfo)
+// setear datos en la caja de resultado
+
+// funcion del valor promedio
+
+function setResultAverage(object){
+    let suma = 0
+    
+    for (var i=0; i < object.length; i++){
+        suma += parseInt(object[i].valor)
+    }
+
+    let promedio = suma / (object.length)
+    return promedio    
+}
+
+// detectar la localidad para posteriormente convertir los valores en moneda local
+
+function formatNumber(number){
+    let localCurrency = navigator.language;
+
+    let formatCurrency = number.toLocaleString(localCurrency, {
+        style: "currency",
+        currency: 'USD',
+        currencyDisplay: 'narrowSymbol'
+    })    
+    return formatCurrency
+}
+
+// funcion para setear los valores en la caja de reslutado
+
+function infoResult(){
+    const valorPromedio = document.querySelector(".valorPromedio")
+    const infoObject = captureInfo()
+    
+    
+    
+    valorPromedio.innerText = formatNumber(setResultAverage(infoObject))     
+}
+
+
+buttonCalcular.addEventListener("click", infoResult)
 
