@@ -26,6 +26,16 @@ h1 {
     
 }
 
+h2 {
+    font-family: 'Inter', sans-serif;    
+    margin: 15px;    
+}
+
+p {
+    font-family: 'Inter', sans-serif; 
+    font-weight: 700;
+}
+
 .header {
     display: flex;
     flex-direction: column;  
@@ -73,11 +83,6 @@ h1 {
     padding: 0 16px 0 16px;
 }
 
-.countTitle h2 {
-    font-family: 'Inter', sans-serif;    
-    margin: 15px;    
-}
-
 .countValues {
     height: 100%;
     display: flex;
@@ -118,4 +123,72 @@ h1 {
     font-weight: 700;
     color: var(--darkGray);
     cursor: pointer;
+}
+
+.resultBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.resultBox{
+    width: 342px;
+    /* height: 176px; */
+    margin-top: 24px;
+    background-color: var(--white); 
+    color: var(--darkGray);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25)
+}
+
+.resultTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    background-color: var(--blue);
+    border-radius: 15px 15px 0 0;
+    padding: 0 16px 0 16px;
+}
+
+.resultPromedioTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    background-color: var(--blue);
+    margin-top: 24px;
+    padding: 0 16px 0 16px;    
+}
+
+.resultadoPromedio{
+    display: flex;
+}
+
+.resultadoPromedio h2 {    
+    text-align: center;
+    width: 100%;
+}
+
+.valorPromedio{
+    font-weight: 100;
+}
+
+.deudoresTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    background-color: var(--blue);
+    margin-top: 24px;
+    padding: 0 16px 0 16px;   
+}
+
+.resultadoPromedio h2 {    
+    text-align: center;
 }
