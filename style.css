@@ -9,6 +9,8 @@
 :root {
     --white: #FFFFFF;
     --blue: #76C6F2;
+    --lightBlue: #E9F2F7;
+    --mediumBlue: #B6DCF1;
     --darkGray: #333333;
     --lightGray: #f0f0f0;
     --mediumGray: #868686;
@@ -34,6 +36,15 @@ h2 {
 p {
     font-family: 'Inter', sans-serif; 
     font-weight: 700;
+}
+
+table {
+    font-family: 'Inter', sans-serif;
+}
+
+th, td {
+    border: solid 1px var(--mediumGray);
+    padding: 10px;
 }
 
 .header {
@@ -81,6 +92,10 @@ p {
     background-color: var(--blue);
     border-radius: 15px 15px 0 0;
     padding: 0 16px 0 16px;
+}
+
+#closeSymbol{
+    cursor: pointer;
 }
 
 .countValues {
@@ -167,6 +182,10 @@ p {
     padding: 0 16px 0 16px;    
 }
 
+.resultPromedioTitle p {
+    font-size: 18px;
+}
+
 .resultadoPromedio{
     display: flex;
 }
@@ -188,6 +207,39 @@ p {
     padding: 0 16px 0 16px;   
 }
 
-.resultadoPromedio h2 {    
+.deudoresTitle p {    
     text-align: center;
+    font-size: 18px;
 }
+
+/* table */
+
+.tableDeudorBox{
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;    
+}
+
+.tableDeudor {
+    
+    border-radius: 5px;    
+    border-collapse: collapse;    
+    margin: 0 14px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.tableDeudor thead{
+    background-color: var(--blue);
+    font-size: 24px;
+}
+
+.tableDeudor tfoot {
+    background-color: var(--green);
+    font-weight: 700;
+}
+
+.tableDeudor tr:nth-child(even){
+    background-color: var(--mediumBlue);
+}
+
