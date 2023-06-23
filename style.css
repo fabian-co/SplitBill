@@ -185,7 +185,6 @@ p {
     justify-content: center;
     align-items: center;    
     background-color: var(--blue);
-    margin-top: 24px;
     padding: 0 16px 0 16px;   
 }
 
