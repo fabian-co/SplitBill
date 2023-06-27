@@ -4,6 +4,7 @@ const addSymbol = document.querySelector("#addSymbol")
 const buttonCalcular = document.querySelector(".buttonCalcular")
 
 
+
 // model html
 /*
 <div class="countBox">
@@ -91,11 +92,11 @@ function captureInfo(){
         const inputName = countBox.querySelector('input[type="text"]');
         const inputValue = countBox.querySelector('input[type="number"]');
     
-        const cuenta = h2Tittle.innerText.split(":")[1].trim();
-        const nombre = inputName.value;
-        const valor = inputValue.value;
+        const id = h2Tittle.innerText.split(":")[1].trim();
+        const name = inputName.value;
+        const value = inputValue.value;
 
-        infoInputs.push({ cuenta, nombre, valor });
+        infoInputs.push({ id, name, value });
     })
 
     console.log(infoInputs)
@@ -103,19 +104,6 @@ function captureInfo(){
 }
 
 // setear datos en la caja de resultado
-
-// funcion del valor promedio
-
-function setResultAverage(object){
-    let suma = 0
-    
-    for (var i=0; i < object.length; i++){
-        suma += parseInt(object[i].valor)
-    }
-
-    let promedio = suma / (object.length)
-    return promedio    
-}
 
 // detectar la localidad para posteriormente convertir los valores en moneda local
 
@@ -130,17 +118,103 @@ function formatNumber(number){
     return formatCurrency
 }
 
+// funcion del valor promedio
+
+function resultAverage(object){
+    let sum = 0
+    
+    for (var i=0; i < object.length; i++){
+        sum += parseInt(object[i].value)
+    }
+
+    let average = sum / (object.length)    
+    return average    
+}
+
+// funcion set average html
+
+function setAverage(average){
+    const valueAverage = document.querySelector(".valueAverage")
+    valueAverage.innerText = formatNumber(average) 
+}
+
+// funcion retornar personas de debtor
+
+function debtorsInfo(object){
+    
+    let average = resultAverage(object)
+        
+    let debtor = object.filter(function (element) {
+        return parseInt(element.value) < average
+    })
+
+    debtorLessAverage = []
+    debtor.forEach((debtor) => {
+        const id = debtor.id
+        const name = debtor.name
+        const value = average-(debtor.value)
+
+        debtorLessAverage.push({ id, name, value })
+    })
+
+    return debtorLessAverage
+}
+
+//funcion para crear el html de la tabla debtor
+
+function setTableDebtor(object){
+    const tableBodyDebtor = document.querySelector(".tableBodyDebtor")
+        
+    for( i = 0; i < object.length ; i++ ){
+        let row = document.createElement("tr")
+        row.setAttribute("class", "rowDebtorTable")
+
+        let idCell = document.createElement("td")
+        idCell.textContent = object[i].id
+        row.append(idCell)
+
+        let nameCell = document.createElement("td")
+        nameCell.textContent = object[i].name
+        row.append(nameCell)
+
+        let valueCell = document.createElement("td")
+        valueNumberFormat= formatNumber(parseInt(object[i].value))
+        valueCell.textContent = valueNumberFormat      
+        row.append(valueCell)
+
+        tableBodyDebtor.append(row)
+    }    
+
+}
+
+// funcion set valor total de debtor html
+
+function setValueTotalDebtor(objectDebtor){
+    const tableTotalDebtor = document.querySelector(".tableTotalDebtor")
+
+    let value = 0
+    objectDebtor.forEach(function(element){
+        let suma = parseInt(element.value)
+        value += suma
+    })
+    console.log(value)
+    tableTotalDebtor.innerText = formatNumber(value)
+}
+
 // funcion para setear los valores en la caja de reslutado
 
-function infoResult(){
-    const valorPromedio = document.querySelector(".valorPromedio")
+function setResult(){
     const infoObject = captureInfo()
+    const debtor= debtorsInfo(infoObject)
+    const average = resultAverage(infoObject)
+
+    setAverage(average)    
     
+    setTableDebtor(debtor)
     
-    
-    valorPromedio.innerText = formatNumber(setResultAverage(infoObject))     
+    setValueTotalDebtor(debtor)
 }
 
 
-buttonCalcular.addEventListener("click", infoResult)
+buttonCalcular.addEventListener("click", setResult)
 
