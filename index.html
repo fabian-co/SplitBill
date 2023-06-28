@@ -59,12 +59,12 @@
             <h2 class="valueAverage">-</h2>
           </div>
 
-          <!-- deudores titulo -->
+          <!-- debtor title -->
           <div class="deudoresTitle">
             <p>El deudor(es) debe de juntar la siguiente cantidad de dinero:</p>
           </div>
 
-          <!-- dedudores tabla -->
+          <!-- debtor tabla -->
           <div class="tableDeudorBox">
             <table class="tableDeudor">
               <thead>
@@ -88,7 +88,7 @@
               </tbody>
             </table>
           </div>
-          <!-- acreedores titulo -->
+          <!-- creditor title -->
           <div class="deudoresTitle">
             <p>El acreedor(es) deberá recibir la
               siguiente cantidad de dinero:</p>
@@ -102,16 +102,17 @@
                   <th colspan="3">Acreedores</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
+              <tbody class="tableBodyCreditor">
+                <!-- esta parte es creada en js -->
+                <!-- <tr>
                   <td>id</td>
                   <td>nombre</td>
                   <td>valor</td>
-                </tr>
+                </tr> -->
                 <tfoot>
                   <tr>
                     <td colspan="2">Total</td>
-                    <td>ValorTotal</td>
+                    <td class="tableTotalCreditor">-</td>
                   </tr>
                 </tfoot>                
               </tbody>

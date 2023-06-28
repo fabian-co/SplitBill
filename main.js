@@ -143,8 +143,7 @@ function setAverage(average){
 function debtorsInfo(object){
     
     let average = resultAverage(object)
-    console.log(average)
-        
+            
     let debtor = object.filter(function (element) {
         return parseFloat(element.value) < average
     })
@@ -157,30 +156,29 @@ function debtorsInfo(object){
 
         debtorLessAverage.push({ id, name, value })
     })
-
-    console.log(debtorLessAverage)
+    
     return debtorLessAverage
 }
 
 //funcion para crear el html de la tabla debtor
 
-function setTableDebtor(object){
+function setTableDebtor(debtor){
     const tableBodyDebtor = document.querySelector(".tableBodyDebtor")
         
-    for( i = 0; i < object.length ; i++ ){
+    for( i = 0; i < debtor.length ; i++ ){
         let row = document.createElement("tr")
         row.setAttribute("class", "rowDebtorTable")
 
         let idCell = document.createElement("td")
-        idCell.textContent = object[i].id
+        idCell.textContent = debtor[i].id
         row.append(idCell)
 
         let nameCell = document.createElement("td")
-        nameCell.textContent = object[i].name
+        nameCell.textContent = debtor[i].name
         row.append(nameCell)
 
         let valueCell = document.createElement("td")
-        valueNumberFormat= formatNumber(parseFloat(object[i].value))
+        valueNumberFormat= formatNumber(parseFloat(debtor[i].value))
         valueCell.textContent = valueNumberFormat      
         row.append(valueCell)
 
@@ -210,30 +208,116 @@ function resetTableDebtor(debtor){
 
 // funcion set valor total de debtor html
 
-function setValueTotalDebtor(objectDebtor){
+function setValueTotalDebtor(debtor){
     const tableTotalDebtor = document.querySelector(".tableTotalDebtor")
 
     let value = 0
-    objectDebtor.forEach(function(element){
+    debtor.forEach(function(element){
         let suma = parseFloat(element.value)
         value += suma
     })
-    console.log(value)
+    
     tableTotalDebtor.innerText = formatNumber(value)
 }
+
+// funcion info creditors
+
+function creditorsInfo(object){
+    let average = resultAverage(object)
+        
+    let creditor = object.filter(function (element) {
+        return parseFloat(element.value) > average
+    })
+
+    creditorAboveAverage = []
+    creditor.forEach((creditor) => {
+        const id = creditor.id
+        const name = creditor.name
+        const value = (creditor.value)-average
+
+        creditorAboveAverage.push({ id, name, value })
+    })
+
+    
+    return creditorAboveAverage
+}
+
+// funcion set table creditor html
+
+function setTableCreditor(creditor){
+    const tableBodyCreditor = document.querySelector(".tableBodyCreditor")
+        
+    for( i = 0; i < creditor.length ; i++ ){
+        let row = document.createElement("tr")
+        row.setAttribute("class", "rowCreditorTable")
+
+        let idCell = document.createElement("td")
+        idCell.textContent = creditor[i].id
+        row.append(idCell)
+
+        let nameCell = document.createElement("td")
+        nameCell.textContent = creditor[i].name
+        row.append(nameCell)
+
+        let valueCell = document.createElement("td")
+        valueNumberFormat= formatNumber(parseFloat(creditor[i].value))
+        valueCell.textContent = valueNumberFormat      
+        row.append(valueCell)
+
+        tableBodyCreditor.append(row)
+    }
+}
+
+// reset table creditor
+
+function resetTableCreditor(creditor){
+    const isTableBodyCreditor = document.querySelector(".tableBodyCreditor")
+    let isRowTableBodyCreditor = isTableBodyCreditor.querySelectorAll(".rowCreditorTable")  
+    
+    if (isRowTableBodyCreditor.length > 0){
+
+        isRowTableBodyCreditor.forEach(function(element) {
+            element.remove()
+        })        
+        setTableCreditor(creditor)
+
+    } else {
+        setTableCreditor(creditor)
+    }
+}
+
+// funcion set valor total de creditor html
+
+function setValueTotalCreditor(creditor){
+    const tableTotalCreditor = document.querySelector(".tableTotalCreditor")
+
+    let value = 0
+    creditor.forEach(function(element){
+        let suma = parseFloat(element.value)
+        value += suma
+    })
+    
+    tableTotalCreditor.innerText = formatNumber(value)
+}
+
 // funcion para setear los valores en la caja de reslutado
 
 function setResult(){
     const infoObject = captureInfo()
     const average = resultAverage(infoObject)
     const debtor= debtorsInfo(infoObject)
-    
+    const creditor = creditorsInfo(infoObject)
+
 
     setAverage(average)   
  
     resetTableDebtor(debtor)
 
     setValueTotalDebtor(debtor)
+
+    resetTableCreditor(creditor)
+
+    setValueTotalCreditor(creditor)
 }
 
 
