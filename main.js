@@ -124,7 +124,7 @@ function resultAverage(object){
     let sum = 0
     
     for (var i=0; i < object.length; i++){
-        sum += parseInt(object[i].value)
+        sum += parseFloat(object[i].value)
     }
 
     let average = sum / (object.length)    
@@ -143,9 +143,10 @@ function setAverage(average){
 function debtorsInfo(object){
     
     let average = resultAverage(object)
+    console.log(average)
         
     let debtor = object.filter(function (element) {
-        return parseInt(element.value) < average
+        return parseFloat(element.value) < average
     })
 
     debtorLessAverage = []
@@ -157,6 +158,7 @@ function debtorsInfo(object){
         debtorLessAverage.push({ id, name, value })
     })
 
+    console.log(debtorLessAverage)
     return debtorLessAverage
 }
 
@@ -178,13 +180,32 @@ function setTableDebtor(object){
         row.append(nameCell)
 
         let valueCell = document.createElement("td")
-        valueNumberFormat= formatNumber(parseInt(object[i].value))
+        valueNumberFormat= formatNumber(parseFloat(object[i].value))
         valueCell.textContent = valueNumberFormat      
         row.append(valueCell)
 
         tableBodyDebtor.append(row)
     }    
 
+}
+
+// reset table debtor
+
+function resetTableDebtor(debtor){
+    
+    const isTableBodyDebtor = document.querySelector(".tableBodyDebtor")
+    let isRowTableBodyDebtor = isTableBodyDebtor.querySelectorAll(".rowDebtorTable")  
+    
+    if (isRowTableBodyDebtor.length > 0){
+
+        isRowTableBodyDebtor.forEach(function(element) {
+            element.remove()
+        })        
+        setTableDebtor(debtor)
+
+    } else {
+        setTableDebtor(debtor)
+    }
 }
 
 // funcion set valor total de debtor html
@@ -194,24 +215,24 @@ function setValueTotalDebtor(objectDebtor){
 
     let value = 0
     objectDebtor.forEach(function(element){
-        let suma = parseInt(element.value)
+        let suma = parseFloat(element.value)
         value += suma
     })
     console.log(value)
     tableTotalDebtor.innerText = formatNumber(value)
 }
-
 // funcion para setear los valores en la caja de reslutado
 
 function setResult(){
     const infoObject = captureInfo()
-    const debtor= debtorsInfo(infoObject)
     const average = resultAverage(infoObject)
+    const debtor= debtorsInfo(infoObject)
+    
 
-    setAverage(average)    
-    
-    setTableDebtor(debtor)
-    
+    setAverage(average)   
+ 
+    resetTableDebtor(debtor)
+
     setValueTotalDebtor(debtor)
 }
 
