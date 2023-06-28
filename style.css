@@ -214,13 +214,13 @@ th, td {
 
 /* table */
 
-.tableDeudorBox{
+.tableResultBox{
     display: flex;
     justify-content: center;
     margin: 24px 0;    
 }
 
-.tableDeudor {
+.tableResult {
     
     border-radius: 5px;    
     border-collapse: collapse;    
@@ -229,17 +229,17 @@ th, td {
     overflow: hidden;
 }
 
-.tableDeudor thead{
+.tableResult thead{
     background-color: var(--blue);
     font-size: 24px;
 }
 
-.tableDeudor tfoot {
+.tableResult tfoot {
     background-color: var(--green);
     font-weight: 700;
 }
 
-.tableDeudor tr:nth-child(even){
+.tableResult tr:nth-child(even){
     background-color: var(--mediumBlue);
 }
 
