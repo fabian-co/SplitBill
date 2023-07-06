@@ -49,9 +49,14 @@ function boxModel(index) {
     const inputValue = document.createElement("input")
     inputValue.setAttribute("type", "number")
     inputValue.setAttribute("placeholder", "$ Valor")
+
+    const spanExpand = document.createElement("span")
+    spanExpand.setAttribute("id", "expandSymbol")
+    spanExpand.classList.add("material-symbols-outlined")
+    spanExpand.innerText = "expand_more"
         
 
-    countValues.append(inputName, inputValue)
+    countValues.append(inputName, inputValue, spanExpand)
     countTitle.append(h2Tittle, spanClose)
     countBox.append(countTitle, countValues)
 
