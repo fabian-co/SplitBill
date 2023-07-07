@@ -133,8 +133,9 @@ function boxModel(index) {
 }
 
 // html inicial 2 countBox
+let initialBox = 2
 
-for (let i = 0; i < 2; i++){
+for (let i = 0; i < initialBox; i++){
     const newCountBox = boxModel(i)
     count.appendChild(newCountBox)
 }   
