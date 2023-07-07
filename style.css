@@ -35,7 +35,7 @@ h2 {
 
 p {
     font-family: 'Inter', sans-serif; 
-    font-weight: 700;
+    font-weight: 700;    
 }
 
 table {
@@ -119,6 +119,51 @@ th, td {
 #expandSymbol {
     justify-content: center;
     align-self: center;
+    cursor: pointer;
+}
+
+#contractSymbol{
+    justify-content: center;
+    align-self: center;
+    cursor: pointer;
+    display: none;
+}
+
+.boxDetails{
+    display: flex;
+    flex-direction: column;
+}
+
+.titleDetails {
+    display: none;
+    width: 100%;
+}
+
+.boxDetails p{
+    padding-right: 12px;
+    color: var(--mediumGray);
+    font-weight: 100;
+}
+
+.boxDetails hr{
+    align-self: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.inputDetails{
+    display: none;
+    width: 100%;
+    align-items: center;
+}
+
+.inputDetails input {
+    width: 100%;
+}
+
+#closeInputDetailsSymbol {
+    padding-left: 12px;
+    cursor: pointer;
 }
 
 #addSymbol {

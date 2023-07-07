@@ -54,9 +54,73 @@ function boxModel(index) {
     spanExpand.setAttribute("id", "expandSymbol")
     spanExpand.classList.add("material-symbols-outlined")
     spanExpand.innerText = "expand_more"
-        
 
-    countValues.append(inputName, inputValue, spanExpand)
+    const spanContract = document.createElement("span")
+    spanContract.setAttribute("id", "contractSymbol")
+    spanContract.classList.add("material-symbols-outlined")
+    spanContract.innerText = "expand_less"
+
+    //tabla details
+    const boxDetails = document.createElement("div")
+    boxDetails.setAttribute("class", "boxDetails")
+
+    const titleDetails = document.createElement("div")
+    titleDetails.setAttribute("class", "titleDetails")
+
+    const detailsText = document.createElement("p")
+    detailsText.innerText = "Detalles"
+
+    const lineDetails = document.createElement("hr")
+    lineDetails.setAttribute("class", "lineDetails")
+
+    // inputs tabla details
+
+    const inputDetails = document.createElement("div")
+    inputDetails.setAttribute("class", "inputDetails")
+
+    const inputItemsDetails = document.createElement("input")
+    inputItemsDetails.setAttribute("class", "inputItemsDetails")
+    inputItemsDetails.setAttribute("placeholder", "Item")
+
+    const inputValueDetails = document.createElement("input")
+    inputValueDetails.setAttribute("class", "inputValueDetails")
+    inputValueDetails.setAttribute("placeholder", "$ Valor")
+
+    const closeInputDetailsSymbol = document.createElement("span")
+    closeInputDetailsSymbol.setAttribute("id", "closeInputDetailsSymbol")
+    closeInputDetailsSymbol.classList.add("material-symbols-outlined")
+    closeInputDetailsSymbol.innerText = "cancel"
+    
+    // for(i=0; i<2;i++){
+    //     boxDetails.appendChild(inputDetails)
+    // }
+
+    // funcion para cambiar el icono de expand a contract
+
+    spanExpand.addEventListener("click", function(){
+        spanExpand.style.display = "none"
+        spanContract.style.display = "inline"
+
+        //reset values inputValue
+        inputValue.value = ""
+
+        inputValue.style.display = "none"
+        titleDetails.style.display = "flex"
+        inputDetails.style.display = "flex"
+    })
+
+    spanContract.addEventListener("click", function(){
+        spanExpand.style.display= "inline"
+        spanContract.style.display= "none"
+        inputValue.style.display = "inline"
+        titleDetails.style.display = "none"
+        inputDetails.style.display = "none"
+    })
+
+    inputDetails.append(inputItemsDetails, inputValueDetails, closeInputDetailsSymbol)
+    titleDetails.append(detailsText, lineDetails)
+    boxDetails.append(titleDetails, inputDetails)
+    countValues.append(inputName, inputValue, boxDetails, spanExpand, spanContract)
     countTitle.append(h2Tittle, spanClose)
     countBox.append(countTitle, countValues)
 
@@ -69,9 +133,8 @@ function boxModel(index) {
 }
 
 // html inicial 2 countBox
-let initialBox = 2;
 
-for (let i = 0; i < initialBox; i++){
+for (let i = 0; i < 2; i++){
     const newCountBox = boxModel(i)
     count.appendChild(newCountBox)
 }   
