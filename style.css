@@ -17,6 +17,10 @@
     --green: #A0F26B;
 }
 
+.inactive{
+    display: none;
+}
+
 body{
     margin: 0;
     background-color: var(--lightGray);
@@ -152,7 +156,7 @@ th, td {
 }
 
 .inputDetails{
-    display: none;
+    display: flex;
     width: 100%;
     align-items: center;
 }
