@@ -170,6 +170,25 @@ th, td {
     cursor: pointer;
 }
 
+#addInputDetailsSymbol {
+    display: none;
+    align-self: center;
+    cursor: pointer;
+}
+
+.tableTotalDetailsDiv {
+    display: flex;
+}
+
+.tableTotalDetailsDiv h2{
+    border: solid 1px var(--mediumGray);
+    background-color: var(--lightBlue);
+    border-radius: 5px;
+    text-align: center;
+    margin: 16px 0px;
+    width: 100%;
+}
+
 #addSymbol {
     margin-top: 24px;
     font-size: 52px;

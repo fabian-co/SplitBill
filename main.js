@@ -78,9 +78,11 @@ function boxModel(index) {
 
         const lineDetails = document.createElement("hr")
         lineDetails.setAttribute("class", "lineDetails")
-        
-        let inputDetailsRef
 
+        const inputDetailsDiv= document.createElement("div")
+        inputDetailsDiv.classList.add("inputDetailsDiv", "inactive")
+
+        //function input details model
         function inputDetailsModel(){
             const inputDetails = document.createElement("div")
             inputDetails.setAttribute("class", "inputDetails")
@@ -92,6 +94,8 @@ function boxModel(index) {
             const inputValueDetails = document.createElement("input")
             inputValueDetails.setAttribute("class", "inputValueDetails")
             inputValueDetails.setAttribute("placeholder", "$ Valor")
+            inputValueDetails.setAttribute("id", "inputValueDetails"+(index+1))
+            inputValueDetails.setAttribute("type", "number")
 
             const closeInputDetailsSymbol = document.createElement("span")
             closeInputDetailsSymbol.setAttribute("id", "closeInputDetailsSymbol")
@@ -99,23 +103,51 @@ function boxModel(index) {
             closeInputDetailsSymbol.innerText = "cancel"
 
             inputDetails.append(inputItemsDetails, inputValueDetails, closeInputDetailsSymbol)
-            inputDetailsRef = inputDetails
+
+            //function close symbol details
+            closeInputDetailsSymbol.addEventListener("click", function(){
+                inputDetails.remove()
+            })
+            
             return inputDetails
         }
 
-        const inputDetailsDiv= document.createElement("div")
-        inputDetailsDiv.classList.add("inputDetailsDiv", "inactive")
         
-
         // for para inicializar inputs details dos veces
         let initialInputDetailsModel=2
         for(i=0; i < initialInputDetailsModel; i++){
             inputDetailsDiv.append(inputDetailsModel())
         }     
 
-        // funcion para cambiar el icono de expand a contract
-        spanExpand.addEventListener("click", function(){
 
+        // add symbol
+
+        const addInputDetailsSymbol = document.createElement("span")
+        addInputDetailsSymbol.setAttribute("id", "addInputDetailsSymbol")
+        addInputDetailsSymbol.classList.add("material-symbols-outlined")
+        addInputDetailsSymbol.innerText = "add"
+
+        // add input details model whit symbol
+        addInputDetailsSymbol.addEventListener("click", function (){
+            inputDetailsDiv.appendChild(inputDetailsModel())
+        })
+
+        // tabla total details
+        const tableTotalDetailsDiv = document.createElement("div")
+        tableTotalDetailsDiv.setAttribute("class", "tableTotalDetailsDiv")
+
+        const h1TotalDetails = document.createElement("h2")
+        h1TotalDetails.setAttribute("class", "h1TotalDetails")
+        h1TotalDetails.innerText = "Total"
+
+        const h1TotalDetailsNumber = document.createElement("h2")
+        h1TotalDetailsNumber.setAttribute("class", "h1TotalDetailsNumber")
+        h1TotalDetailsNumber.innerText = "-"
+
+        tableTotalDetailsDiv.append(h1TotalDetails, h1TotalDetailsNumber)
+
+        // function para cambiar el icono de expand a contract
+        spanExpand.addEventListener("click", function(){
             spanExpand.style.display = "none"
             spanContract.style.display = "inline"
     
@@ -124,7 +156,8 @@ function boxModel(index) {
     
             inputValue.style.display = "none"
             titleDetails.style.display = "flex" 
-            inputDetailsDiv.classList.toggle("inactive")  
+            inputDetailsDiv.classList.toggle("inactive")
+            addInputDetailsSymbol.style.display = "inline"
         })
     
         spanContract.addEventListener("click", function(){
@@ -133,10 +166,11 @@ function boxModel(index) {
             inputValue.style.display = "inline"
             titleDetails.style.display = "none"
             inputDetailsDiv.classList.toggle("inactive")
+            addInputDetailsSymbol.style.display = "none"
         })
 
         titleDetails.append(detailsText, lineDetails)
-        boxDetails.append(titleDetails, inputDetailsDiv, spanExpand, spanContract)
+        boxDetails.append(titleDetails, inputDetailsDiv, addInputDetailsSymbol, tableTotalDetailsDiv, spanExpand, spanContract)
         
         return boxDetails
     }
@@ -146,7 +180,7 @@ function boxModel(index) {
     countTitle.append(h2Tittle, spanClose)
     countBox.append(countTitle, countValues)
 
-    // function para close el countbox correspondiente
+    // function para close el countBox correspondiente
     spanClose.addEventListener('click', function() {
         countBox.remove();
     });
@@ -162,7 +196,7 @@ for (let i = 0; i < initialBox; i++){
     count.appendChild(newCountBox)
 }   
 
-// boton agregar countBox
+// button add countBox
 addSymbol.addEventListener("click", addBox)
 
 function addBox(){
@@ -171,7 +205,7 @@ function addBox(){
     initialBox++
 }
 
-//guardar datos 
+//save data 
 
 function captureInfo(){  
     const infoInputs = []
