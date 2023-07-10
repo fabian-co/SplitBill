@@ -96,10 +96,12 @@ function boxModel(index) {
             inputValueDetails.setAttribute("placeholder", "$ Valor")
             inputValueDetails.setAttribute("id", "inputValueDetails"+(index+1))
             inputValueDetails.setAttribute("type", "number")
+            inputValueDetails.setAttribute("oninput", "sumInputValues(" +(index+1)+")")
 
             const closeInputDetailsSymbol = document.createElement("span")
+            closeInputDetailsSymbol.setAttribute("onclick", "deleteInputValues(" +(index+1)+")")
             closeInputDetailsSymbol.setAttribute("id", "closeInputDetailsSymbol")
-            closeInputDetailsSymbol.classList.add("material-symbols-outlined")
+            closeInputDetailsSymbol.classList.add("material-symbols-outlined")            
             closeInputDetailsSymbol.innerText = "cancel"
 
             inputDetails.append(inputItemsDetails, inputValueDetails, closeInputDetailsSymbol)
@@ -107,6 +109,9 @@ function boxModel(index) {
             //function close symbol details
             closeInputDetailsSymbol.addEventListener("click", function(){
                 inputDetails.remove()
+
+                //function update sum input result
+                deleteInputValues((index+1))
             })
             
             return inputDetails
@@ -141,10 +146,12 @@ function boxModel(index) {
         h1TotalDetails.innerText = "Total"
 
         const h1TotalDetailsNumber = document.createElement("h2")
-        h1TotalDetailsNumber.setAttribute("class", "h1TotalDetailsNumber")
+        h1TotalDetailsNumber.setAttribute("class", "h1TotalDetailsNumber"+(index+1))
         h1TotalDetailsNumber.innerText = "-"
 
         tableTotalDetailsDiv.append(h1TotalDetails, h1TotalDetailsNumber)
+
+        
 
         // function para cambiar el icono de expand a contract
         spanExpand.addEventListener("click", function(){
@@ -186,6 +193,29 @@ function boxModel(index) {
     });
 
     return countBox
+}
+
+//function sum inputs per box
+       
+function sumInputValues(i){            
+    let inputsValues = document.querySelectorAll('#inputValueDetails'+i)
+    console.log(inputsValues)
+
+    let sum = 0
+
+    inputsValues.forEach(function(input){
+        let value = parseFloat(input.value) || 0
+        sum += value
+    })
+    console.log(sum)
+    document.querySelector(".h1TotalDetailsNumber"+i).innerText = formatNumber(sum) 
+    
+}
+
+//function update sum onclick symbol
+
+function deleteInputValues(i){
+    sumInputValues(i)
 }
 
 // html inicial 2 countBox
