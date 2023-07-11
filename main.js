@@ -149,6 +149,7 @@ function boxModel(index) {
 
         const h1TotalDetailsNumber = document.createElement("h2")
         h1TotalDetailsNumber.setAttribute("class", "h1TotalDetailsNumber"+(index+1))
+        h1TotalDetailsNumber.setAttribute("id", "TotalDetailsNumberBox")
         h1TotalDetailsNumber.innerText = "-"
 
         tableTotalDetailsDiv.append(h1TotalDetails, h1TotalDetailsNumber)
@@ -167,6 +168,9 @@ function boxModel(index) {
             titleDetails.style.display = "flex" 
             inputDetailsDiv.classList.toggle("inactive")
             addInputDetailsSymbol.style.display = "inline"
+            
+            //update sumsumInputValues
+            sumInputValues(index+1)
         })
     
         spanContract.addEventListener("click", function(){
@@ -176,6 +180,9 @@ function boxModel(index) {
             titleDetails.style.display = "none"
             inputDetailsDiv.classList.toggle("inactive")
             addInputDetailsSymbol.style.display = "none"
+
+            //update sumsumInputValues
+            sumInputValues(index+1)
         })
 
         titleDetails.append(detailsText, lineDetails)
@@ -201,11 +208,9 @@ function boxModel(index) {
        
 function sumInputValues(i){            
     let inputsValues = document.querySelectorAll('#inputValueDetails'+i)
-    console.log(inputsValues)
-
+    
     const valueCountBox = document.querySelector(".valueCountBox"+i)
-    console.log(valueCountBox.value)
-
+    
     // condicional para evuluar si el inputValue tiene un valor o los itemsvalues tienen un valor
     if (valueCountBox.value != 0){
         document.querySelector(".h1TotalDetailsNumber"+i).innerText = formatNumber(parseFloat(valueCountBox.value))
@@ -216,7 +221,7 @@ function sumInputValues(i){
             let value = parseFloat(input.value) || 0
             sum += value
         })
-        console.log(sum)
+        
         document.querySelector(".h1TotalDetailsNumber"+i).innerText = formatNumber(sum) 
     }    
     
@@ -255,20 +260,17 @@ function captureInfo(){
     idCountBox.forEach((countBox) => {
         const h2Tittle = countBox.querySelector("h2");
         const inputName = countBox.querySelector('input[type="text"]');
-        const inputValue = countBox.querySelector('input[type="number"]');
-    
-        const id = h2Tittle.innerText.split(":")[1].trim();
-        const name = inputName.value;
-        const value = inputValue.value;
+        const TotalDetailsNumberBox = countBox.querySelector('#TotalDetailsNumberBox');
 
-        infoInputs.push({ id, name, value });
+        const id = h2Tittle.innerText.split(":")[1].trim()
+        const name = inputName.value
+        const value = formatCurrencyToFloat(TotalDetailsNumberBox.textContent)
+
+        infoInputs.push({ id, name, value });      
     })
-
-    console.log(infoInputs)
+    
     return infoInputs
 }
-
-// setear datos en la caja de resultado
 
 // detectar la localidad para posteriormente convertir los valores en moneda local
 
@@ -283,6 +285,15 @@ function formatNumber(number){
     return formatCurrency
 }
 
+// formatear numero de moneda a numero float
+
+function formatCurrencyToFloat(currency){
+    currency = parseFloat(currency.replace(/[$,]/g, ""))
+    return currency
+}
+
+// setear datos en la caja de resultado
+
 // funcion del valor promedio
 
 function resultAverage(object){
@@ -292,7 +303,8 @@ function resultAverage(object){
         sum += parseFloat(object[i].value)
     }
 
-    let average = sum / (object.length)    
+    let average = sum / (object.length) 
+    let averageRedound =   Math.floor( average /50) * 50
     return average    
 }
 
