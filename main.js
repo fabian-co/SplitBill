@@ -49,6 +49,8 @@ function boxModel(index) {
     
     const inputValue = document.createElement("input")
     inputValue.setAttribute("type", "number")
+    inputValue.setAttribute("class", "valueCountBox" + (index+1))
+    inputValue.setAttribute("oninput", "sumInputValues(" +(index+1)+")")
     inputValue.setAttribute("placeholder", "$ Valor")
 
     const spanExpand = document.createElement("span")
@@ -201,14 +203,22 @@ function sumInputValues(i){
     let inputsValues = document.querySelectorAll('#inputValueDetails'+i)
     console.log(inputsValues)
 
-    let sum = 0
+    const valueCountBox = document.querySelector(".valueCountBox"+i)
+    console.log(valueCountBox.value)
 
-    inputsValues.forEach(function(input){
-        let value = parseFloat(input.value) || 0
-        sum += value
-    })
-    console.log(sum)
-    document.querySelector(".h1TotalDetailsNumber"+i).innerText = formatNumber(sum) 
+    // condicional para evuluar si el inputValue tiene un valor o los itemsvalues tienen un valor
+    if (valueCountBox.value != 0){
+        document.querySelector(".h1TotalDetailsNumber"+i).innerText = formatNumber(parseFloat(valueCountBox.value))
+    }else{
+        let sum = 0
+
+        inputsValues.forEach(function(input){
+            let value = parseFloat(input.value) || 0
+            sum += value
+        })
+        console.log(sum)
+        document.querySelector(".h1TotalDetailsNumber"+i).innerText = formatNumber(sum) 
+    }    
     
 }
 
