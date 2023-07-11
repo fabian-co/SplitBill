@@ -30,6 +30,6 @@ git clone https://github.com/tu-usuario/splitbill.git
 
 ## Contribuciones
 
-Si tienes ideas o sugerencias para mejorar SplitBill, ¡nos encantaría recibir tus contribuciones! Siéntete libre de realizar un fork de este repositorio, hacer tus cambios y enviar un pull request.
+Si tienes ideas o sugerencias para mejorar SplitBill, ¡me encantaría recibir tus contribuciones! Siéntete libre de realizar un fork de este repositorio, hacer tus cambios y enviar un pull request.
 
 ¡Disfruta usando SplitBill y que tus cuentas siempre estén equitativas!
