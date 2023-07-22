@@ -303,8 +303,7 @@ function resultAverage(object){
         sum += parseFloat(object[i].value)
     }
 
-    let average = sum / (object.length) 
-    let averageRedound =   Math.floor( average /50) * 50
+    let average = sum / (object.length)
     return average    
 }
 
