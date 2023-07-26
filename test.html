@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="input1">
+      <input type="number" class="input-field1" oninput="actualizarSuma(1)" />
+      <span class="eliminar" onclick="eliminarInput(1)"
+        ><i class="fas fa-times"></i
+      ></span>
+      <input type="number" class="input-field1" oninput="actualizarSuma(1)" />
+      <span class="eliminar" onclick="eliminarInput(1)"
+        ><i class="fas fa-times"></i
+      ></span>
+      <input type="number" class="input-field1" oninput="actualizarSuma(1)" />
+      <span class="eliminar" onclick="eliminarInput(1)"
+        ><i class="fas fa-times"></i
+      ></span>
+      <span id="resultado1"></span>
+    </div>
+
+    <div class="input2">
+      <input type="number" class="input-field2" oninput="actualizarSuma(2)" />
+      <span class="eliminar" onclick="eliminarInput(2)"
+        ><i class="fas fa-times"></i
+      ></span>
+      <input type="number" class="input-field2" oninput="actualizarSuma(2)" />
+      <span class="eliminar" onclick="eliminarInput(2)"
+        ><i class="fas fa-times"></i
+      ></span>
+      <input type="number" class="input-field2" oninput="actualizarSuma(2)" />
+      <span class="eliminar" onclick="eliminarInput(2)"
+        ><i class="fas fa-times"></i
+      ></span>
+      <span id="resultado2"></span>
+    </div>
+
+    <!-- Agrega el enlace para la librería de Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+    <script>
+      function actualizarSuma(numero) {
+        var campos = document.querySelectorAll(".input-field" + numero);
+        var suma = 0;
+
+        campos.forEach(function (campo) {
+          var valor = parseFloat(campo.value) || 0;
+          suma += valor;
+        });
+
+        document.getElementById("resultado" + numero).textContent = suma;
+      }
+
+      function eliminarInput(numero) {
+        var input = document.querySelector(".input-field" + numero);
+        input.parentNode.removeChild(input);
+        actualizarSuma(numero);
+      }
+    </script>
+  </body>
+</html>

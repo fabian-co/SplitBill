@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SplitBill</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="icon" href="./img/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+      <h1 class="titleApp">SplitBill</h1>
+    </header>
+
+    <!-- cuentas -->
+    <div class="countBody">
+      <div class="count">
+        <!-- script main.js crea los countBox -->
+      </div>
+
+      <!-- adicionar cuadro simbolo -->
+      <span id="addSymbol" class="material-symbols-outlined"> add_circle </span>
+    </div>
+
+    <!-- Boton Calcular -->
+
+    <div class="buttonDiv">
+      <button class="buttonCalcular">Calcular</button>
+    </div>
+
+    <!-- Resultado -->
+
+    <div class="resultBody">
+      <div class="result">
+        <div class="resultBox">
+          <!-- title -->
+          <div class="resultTitle">
+            <h2>Resultado</h2>
+          </div>
+
+          <!-- average title -->
+          <div class="resultPromedioTitle">
+            <p>Cuenta promedio por persona:</p>
+          </div>
+
+          <!-- valor average -->
+          <div class="resultadoPromedio">
+            <h2>Valor:</h2>
+            <h2 class="valueAverage">-</h2>
+          </div>
+
+          <!-- debtor title -->
+          <div class="deudoresTitle">
+            <p>El deudor(es) debe de juntar la siguiente cantidad de dinero:</p>
+          </div>
+
+          <!-- debtor tabla -->
+          <div class="tableResultBox">
+            <table class="tableResult">
+              <thead>
+                <tr>
+                  <th colspan="3">Deudores</th>
+                </tr>
+              </thead>
+              <tbody class="tableBodyDebtor">
+                <!-- esta parte es creada en main.js -->
+                <!-- <tr>
+                  <td>id</td>
+                  <td>nombre</td>
+                  <td>valor</td>
+                </tr> -->
+                <tfoot>
+                  <tr>
+                    <td colspan="2">Total</td>
+                    <td class="tableTotalDebtor">-</td>
+                  </tr>
+                </tfoot>                
+              </tbody>
+            </table>
+          </div>
+          <!-- creditor title -->
+          <div class="deudoresTitle">
+            <p>El acreedor(es) deberá recibir la
+              siguiente cantidad de dinero:</p>
+          </div>
+
+          <!-- creditor table -->
+          <div class="tableResultBox">
+            <table class="tableResult">
+              <thead>
+                <tr>
+                  <th colspan="3">Acreedores</th>
+                </tr>
+              </thead>
+              <tbody class="tableBodyCreditor">
+                <!-- esta parte es creada en js -->
+                <!-- <tr>
+                  <td>id</td>
+                  <td>nombre</td>
+                  <td>valor</td>
+                </tr> -->
+                <tfoot>
+                  <tr>
+                    <td colspan="2">Total</td>
+                    <td class="tableTotalCreditor">-</td>
+                  </tr>
+                </tfoot>                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="contentFooter">
+        <div class="footerText">
+          <p>Todos los derechos reservados &copy; 2023</p>
+        </div>      
+        
+        <div class="socialMedia">
+          <p>Sigueme en: <a href="https://github.com/fabian-co">
+          <i class="fab fa-github"></i>
+          <a href="https://twitter.com/FabianGrajales_">
+          <i class="fab fa-twitter"></i>
+        </div>
+      </div>      
+    </footer>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

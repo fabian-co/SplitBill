@@ -1,0 +1,345 @@
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 700,
+    'GRAD' 200,
+    'opsz' 48,
+}
+
+:root {
+    --white: #FFFFFF;
+    --blue: #76C6F2;
+    --lightBlue: #E9F2F7;
+    --mediumBlue: #B6DCF1;
+    --darkGray: #333333;
+    --lightGray: #f0f0f0;
+    --mediumGray: #868686;
+    --green: #A0F26B;
+}
+
+.inactive{
+    display: none;
+}
+
+body{
+    margin: 0;
+    background-color: var(--lightGray);
+}
+
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 32;
+    
+}
+
+h2 {
+    font-family: 'Inter', sans-serif;    
+    margin: 15px;    
+}
+
+p {
+    font-family: 'Inter', sans-serif; 
+    font-weight: 700;    
+}
+
+table {
+    font-family: 'Inter', sans-serif;
+}
+
+th, td {
+    border: solid 1px var(--mediumGray);
+    padding: 10px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;  
+    background-color: var(--blue);
+    height: 96px;
+    width: 100%;    
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 15px 15px;
+}
+
+.titleApp {
+    color: var(--darkGray);
+}
+.countBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;       
+}
+
+.countBox{
+    width: 342px;
+    margin-top: 24px;
+    background-color: var(--white); 
+    color: var(--darkGray);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25)
+}
+
+.countTitle{    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    background-color: var(--blue);
+    border-radius: 15px 15px 0 0;
+    padding: 0 16px 0 16px;
+}
+
+#closeSymbol{
+    cursor: pointer;
+}
+
+.countValues {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    margin: 12px 18px;    
+}
+
+.countValues input {
+    height: 28px;
+    margin: 8px 0;
+    font-family: 'Inter', sans-serif; 
+    font-size: 14px;
+    border-radius: 4px;
+    border-color: var(--lightGray);
+    border-style:solid;
+}
+
+#expandSymbol {
+    justify-content: center;
+    align-self: center;
+    cursor: pointer;
+}
+
+#contractSymbol{
+    justify-content: center;
+    align-self: center;
+    cursor: pointer;
+    display: none;
+}
+
+.boxDetails{
+    display: flex;
+    flex-direction: column;
+}
+
+.titleDetails {
+    display: none;
+    width: 100%;
+}
+
+.boxDetails p{
+    padding-right: 12px;
+    color: var(--mediumGray);
+    font-weight: 100;
+}
+
+.boxDetails hr{
+    align-self: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.inputDetails{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.inputDetails input {
+    width: 100%;
+}
+
+#closeInputDetailsSymbol {
+    padding-left: 12px;
+    cursor: pointer;
+}
+
+#addInputDetailsSymbol {
+    display: none;
+    align-self: center;
+    cursor: pointer;
+}
+
+.tableTotalDetailsDiv {
+    display: flex;
+}
+
+.tableTotalDetailsDiv h2{
+    border: solid 1px var(--mediumGray);
+    background-color: var(--lightBlue);
+    border-radius: 5px;
+    text-align: center;
+    margin: 16px 0px;
+    width: 100%;
+}
+
+#addSymbol {
+    margin-top: 24px;
+    font-size: 52px;
+    color: var(--darkGray);
+    cursor: pointer;
+}
+
+.buttonDiv{
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonCalcular{
+    background-color: var(--green);
+    border-radius: 8px;
+    border: none;
+    width: 342px;
+    height: 80px;
+    font-family: 'Inter', sans-serif; 
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--darkGray);
+    cursor: pointer;
+}
+
+.resultBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.resultBox{
+    width: 342px;
+    /* height: 176px; */
+    margin-top: 24px;
+    background-color: var(--white); 
+    color: var(--darkGray);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25)
+}
+
+.resultTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    background-color: var(--blue);
+    border-radius: 15px 15px 0 0;
+    padding: 0 16px 0 16px;
+}
+
+.resultPromedioTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    background-color: var(--blue);
+    margin-top: 24px;
+    padding: 0 16px 0 16px;    
+}
+
+.resultPromedioTitle p {
+    font-size: 18px;
+}
+
+.resultadoPromedio{
+    display: flex;
+}
+
+.resultadoPromedio h2 {    
+    text-align: center;
+    width: 100%;
+}
+
+.valorPromedio{
+    font-weight: 100;
+}
+
+.deudoresTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    background-color: var(--blue);
+    padding: 0 16px 0 16px;   
+}
+
+.deudoresTitle p {    
+    text-align: center;
+    font-size: 18px;
+}
+
+/* table */
+
+.tableResultBox{
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;    
+}
+
+.tableResult {
+    
+    border-radius: 5px;    
+    border-collapse: collapse;    
+    margin: 0 14px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.tableResult thead{
+    background-color: var(--blue);
+    font-size: 24px;
+}
+
+.tableResult tfoot {
+    background-color: var(--green);
+    font-weight: 700;
+}
+
+.tableResult tr:nth-child(even){
+    background-color: var(--mediumBlue);
+}
+
+footer{
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;   
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: 0; 
+    background-color: var(--darkGray);
+    color: var(--white);
+    
+}
+.socialMedia{
+    display: flex;
+    justify-content: center;
+}
+
+footer p{
+    font-weight: 100;
+}
+
+.socialMedia i{
+    margin-left: 8px;
+    font-size: 24px;
+    color: var(--white);
+}
